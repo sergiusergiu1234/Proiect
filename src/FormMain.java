@@ -73,13 +73,14 @@ public class FormMain extends JFrame {
                             "ATENTIE", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE);
                     System.out.println(result);
                 } else {
-                    for (int i = temp; i < list.size(); i++) {  //de la obiectul selectat pana la sfarsitul listei, scade cu -1 fiecare index
+                    for (int i = temp+1; i < list.size(); i++) {  //de la obiectul selectat pana la sfarsitul listei, scade cu -1 fiecare index
                         list.get(i).minusIndex();
                     }
+                    list.get(temp).minusLastIndex();
                     if (index != -1) {
                         list.remove(index);                     //sterge obiectul de la indexul selecat din lista arraylist
                     }
-                    list.get(temp).minusLastIndex();
+                    
                     Activitate[] actArray = new Activitate[list.size()];      //Array nou de tip Activitate de marimea Arraylistului
                     list.toArray(actArray);                                     //Trece datele in Array-ul creeat
                     listlist.setListData(actArray);                          //Adauga datele din Array in Jlist care apare in aplicatie
